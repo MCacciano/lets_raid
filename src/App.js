@@ -1,17 +1,20 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import xivapi from './utils/xivapi';
+// pages
+import HomePage from './pages/home';
+import LoginPage from './pages/login';
 
 import './App.css';
 
 const App = () => {
-  const [text, setText] = React.useState('');
-
   return (
-    <div>
-      <input type='text' value={text} onChange={e => setText(e.target.value)} />
-      <h2>{text}</h2>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route exact path='/login' component={LoginPage} />
+      </Switch>
+    </Router>
   );
 };
 
