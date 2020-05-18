@@ -10,7 +10,7 @@ const Button = ({ children, className, isGoogleSignIn, ...restProps }) => {
       cls = `border-black border-opacity-50 hover:bg-black`;
     }
 
-    return `rounded shadow-sm border py-2 px-3 text-md hover:text-white ${cls} ${className}`;
+    return `rounded shadow-sm bg-transparent font-semibold border py-2 px-3 text-sm hover:text-white hover:border-transparent ${cls} ${className}`;
   };
 
   return (

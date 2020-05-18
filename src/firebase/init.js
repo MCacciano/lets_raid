@@ -20,4 +20,11 @@ if (!firebase.apps.length) {
 export const db = firebase.firestore();
 export const auth = firebase.auth();
 
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+// always prompt for google auth when using this provider
+googleProvider.setCustomParameters({ prompt: 'select_account' });
+
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
+
 export default firebase;

@@ -5,6 +5,7 @@ import SBImg1 from '../../images/shadowbringers-1.png';
 // components
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import { signInWithGoogle } from '../../firebase/init';
 
 const LoginPage = () => {
   const handleOnSubmit = e => {
@@ -31,12 +32,12 @@ const LoginPage = () => {
           className="flex flex-col flex-grow justify-center p-6"
           onSubmit={handleOnSubmit}
         >
-          <Input type="text" label="Username" />
-          <Input type="text" label="Password" />
+          <Input type="text" label="Username" className="mb-4" />
+          <Input type="text" label="Password" className="mb-4" />
           <div className="flex flex-row justify-between">
-            <Button onClick={handleOnClick}>Sign In</Button>
-            <Button onClick={handleOnClick} isGoogleSignIn>
-              Sign In With Google
+            <Button onClick={handleOnClick}>Login</Button>
+            <Button onClick={signInWithGoogle} isGoogleSignIn>
+              Login With Google
             </Button>
           </div>
         </form>
