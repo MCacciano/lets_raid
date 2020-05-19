@@ -5,7 +5,7 @@ const Button = ({ children, className, isGoogleSignIn, ...restProps }) => {
     let cls;
 
     if (isGoogleSignIn) {
-      cls = `border-blue-700 hover:bg-blue-700`;
+      cls = `border-blue-700 hover:bg-blue-700 text-blue-700`;
     } else {
       cls = `border-black border-opacity-50 hover:bg-black`;
     }

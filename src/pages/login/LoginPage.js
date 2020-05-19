@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import SBImg1 from '../../images/shadowbringers-1.png';
 
@@ -8,14 +9,19 @@ import Button from '../../components/Button';
 import { signInWithGoogle } from '../../firebase/init';
 
 const LoginPage = () => {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  
   const handleOnSubmit = e => {
     e.preventDefault();
-    console.log('submitted');
   };
 
   const handleOnClick = e => {
-    console.log('clicked');
+    console.log({ email, password });
   };
+
+  const handleEmail = ({ target }) => setEmail(target.value);
+  const handlePassword = ({ target }) => setPassword(target.value);
 
   return (
     <div className="h-screen w-screen flex justify-center items-center">
@@ -28,19 +34,29 @@ const LoginPage = () => {
           />
           <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-25"></div>
         </div>
-        <form
-          className="flex flex-col flex-grow justify-center p-6"
-          onSubmit={handleOnSubmit}
-        >
-          <Input type="text" label="Username" className="mb-4" />
-          <Input type="text" label="Password" className="mb-4" />
-          <div className="flex flex-row justify-between">
-            <Button onClick={handleOnClick}>Login</Button>
-            <Button onClick={signInWithGoogle} isGoogleSignIn>
-              Login With Google
-            </Button>
+        <div className="w-1/2 flex flex-col">
+          <form
+            className="flex flex-col flex-grow justify-center p-6"
+            onSubmit={handleOnSubmit}
+          >
+            <Input onChange={handleEmail} type="email" label="Email" className="mb-4" />
+            <Input onChange={handlePassword} type="password" label="Password" className="mb-4" />
+            <div className="flex flex-row justify-between">
+              <Button onClick={handleOnClick}>Login</Button>
+              <Button onClick={signInWithGoogle} isGoogleSignIn>
+                Login With Google
+              </Button>
+            </div>
+          </form>
+          <div className="flex flex-row justify-center">
+            <p className="text-sm py-2">
+              <span className="italic">Don't have an account yet?</span>{' '}
+              <Link to="/" className="pl-2 font-semibold text-blue-500 hover:border">
+                Sign Up!
+              </Link>
+            </p>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
