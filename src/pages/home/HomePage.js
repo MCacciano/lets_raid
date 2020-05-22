@@ -1,11 +1,7 @@
 import React from 'react';
 
-const HomePage = () => {
-  return (
-    <div>
-      <h1>HomePage</h1>
-    </div>
-  );
-};
+import Dashboard from '../../components/Dashboard';
+
+const HomePage = () => <Dashboard />;
 
 export default HomePage;
