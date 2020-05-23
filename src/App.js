@@ -10,7 +10,7 @@ import MainLayout from './layouts/MainLayout';
 import AuthRoute from './components/AuthRoute';
 
 import AuthContext from './context/auth/auth.context';
-import { auth } from './firebase/init';
+import { auth, db, createUserDocument } from './firebase/init';
 
 import './App.css';
 
@@ -19,12 +19,23 @@ const App = () => {
   const history = useHistory();
 
   React.useEffect(() => {
-    const unsub = auth.onAuthStateChanged(authUser => {
+    const unsub = auth.onAuthStateChanged(async authUser => {
       if (authUser) {
-        dispatch({ type: 'SET_USER', payload: authUser });
-        history.push('/');
+        try {
+          const userRef = await createUserDocument(authUser);
+
+          userRef.onSnapshot(snapShot => {
+            dispatch({
+              type: 'SET_USER',
+              payload: { id: snapShot.id, ...snapShot.data() },
+            });
+            history.push('/');
+          });
+        } catch (err) {
+          console.error(err);
+        }
       } else {
-        dispatch({ type: 'SET_USER', payload: null });
+        dispatch({ type: 'SET_USER', payload: authUser });
       }
     });
 
