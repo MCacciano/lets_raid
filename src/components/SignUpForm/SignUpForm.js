@@ -23,7 +23,7 @@ const SignUpForm = () => {
   return (
     <div
       style={{ backgroundColor: '#F4F4F4' }}
-      className="z-10 bg-white rounded border border-black w-5/6 sm:w-1/2 md:w-3/6 lg:w-2/6"
+      className="z-10 bg-white rounded border border-black max-w-sm w-5/6"
     >
       <div className="flex flex-row justify-center align-center text-center py-4 md:py-8">
         <h1 className="text-3xl md:text-4xl">Sign Up</h1>
@@ -61,12 +61,6 @@ const SignUpForm = () => {
             >
               Login!
             </Link>
-            {/* <br />
-            <p>or</p>
-            <br />
-            <Button onClick={signInWithGoogle} isGoogleSignIn>
-              Login With Google
-            </Button> */}
           </p>
         </div>
       </form>
