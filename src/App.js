@@ -4,6 +4,7 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 // pages
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
+import SignUpPage from './pages/sign-up';
 
 import MainLayout from './layouts/MainLayout';
 import AuthRoute from './components/AuthRoute';
@@ -37,6 +38,7 @@ const App = () => {
         <Switch>
           <AuthRoute exact path="/" component={HomePage} />
           <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/sign-up" component={SignUpPage} />
         </Switch>
       </MainLayout>
     </>
