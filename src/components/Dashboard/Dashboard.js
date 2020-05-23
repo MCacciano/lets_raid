@@ -1,15 +1,12 @@
 import React from 'react';
 
 import AuthContext from '../../context/auth/auth.context';
+import { auth } from '../../firebase/init';
 
 const Dashboard = () => {
-  const {
-    state: { user },
-  } = React.useContext(AuthContext);
-
   return (
     <div className="flex flex-col h-full w-full text-center">
-      <h1 className="text-2xl m-4">{user.displayName}</h1>
+      <h1 className="text-2xl m-4">{auth.currentUser.displayName}</h1>
     </div>
   );
 };

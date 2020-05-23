@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
 
 // pages
 import HomePage from './pages/home';
@@ -44,15 +44,13 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <MainLayout>
-        <Switch>
-          <AuthRoute exact path="/" component={HomePage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/sign-up" component={SignUpPage} />
-        </Switch>
-      </MainLayout>
-    </>
+    <MainLayout>
+      <Switch>
+        <AuthRoute exact path="/" component={HomePage} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/sign-up" component={SignUpPage} />
+      </Switch>
+    </MainLayout>
   );
 };
 

@@ -36,10 +36,9 @@ export const createUserDocument = async (authUser, additionalData) => {
   
   if (!snapShot.exists) {
     const { displayName, email } = authUser;
+    const createdAt = new Date();
 
     try {
-      const createdAt = new Date();
-
       await userRef.set({
         displayName,
         email,

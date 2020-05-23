@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import AuthContext from '../../context/auth/auth.context';
 import { auth } from '../../firebase/init';
 
 const Navigation = ({ isAuthenticated }) => {
-  const { state } = React.useContext(AuthContext);
-
   return (
     <nav
       className="w-full h-full sticky top-0 z-50"
@@ -19,7 +16,7 @@ const Navigation = ({ isAuthenticated }) => {
         <Link to="/">
           <h1 className="text-2xl">LetsRaid</h1>
         </Link>
-        {state.user ? (
+        {auth.currentUser ? (
           <ul className="flex flex-row h-full items-center">
             <Link to="/" className="mx-4 cursor-pointer">
               Dashboard

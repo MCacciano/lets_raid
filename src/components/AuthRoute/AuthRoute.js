@@ -1,12 +1,12 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+
+import { auth } from '../../firebase/init';
 
 import AuthContext from '../../context/auth/auth.context';
+import LoginPage from '../../pages/login';
 
 const AuthRoute = ({ component: Component }) => {
-  const { state } = React.useContext(AuthContext);
-
-  return state.user ? <Component /> : <Redirect to={{ pathname: '/login' }} />;
+  return auth.currentUser ? <Component /> : <LoginPage />;
 };
 
 export default AuthRoute;
