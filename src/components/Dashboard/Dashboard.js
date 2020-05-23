@@ -1,6 +1,5 @@
 import React from 'react';
 
-import AuthContext from '../../context/auth/auth.context';
 import { auth } from '../../firebase/init';
 
 const Dashboard = () => {

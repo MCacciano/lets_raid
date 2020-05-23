@@ -22,15 +22,8 @@ const App = () => {
     const unsub = auth.onAuthStateChanged(async authUser => {
       if (authUser) {
         try {
-          const userRef = await createUserDocument(authUser);
-
-          userRef.onSnapshot(snapShot => {
-            dispatch({
-              type: 'SET_USER',
-              payload: { id: snapShot.id, ...snapShot.data() },
-            });
-            history.push('/');
-          });
+          await createUserDocument(authUser);
+          history.push('/');
         } catch (err) {
           console.error(err);
         }
