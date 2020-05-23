@@ -11,7 +11,7 @@ import './index.css';
 let app = null;
 
 auth.onAuthStateChanged(authUser => {
-  if (authUser && !app) {
+  if (!app) {
     app = ReactDOM.render(
       <AuthContextProvider>
         <Router>
