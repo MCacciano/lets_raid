@@ -1,5 +1,14 @@
 import React from 'react';
 import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import {
+  faDragon,
+  faCalendar,
+  faCalendarAlt,
+  faHatWizard,
+  faRobot,
+} from '@fortawesome/free-solid-svg-icons';
 
 // pages
 import HomePage from './pages/home';
@@ -13,6 +22,8 @@ import AuthContext from './context/auth/auth.context';
 import { auth, db, createUserDocument } from './firebase/init';
 
 import './App.css';
+
+library.add(fab, faCalendar, faCalendarAlt, faDragon, faHatWizard, faRobot);
 
 const App = () => {
   const { dispatch } = React.useContext(AuthContext);

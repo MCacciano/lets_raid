@@ -1,11 +1,16 @@
 import React from 'react';
 
 import { auth } from '../../firebase/init';
+import DashboardNav from '../DashboardNav/DashboardNav';
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col h-full w-full text-center">
-      <h1 className="text-2xl m-4">{auth.currentUser.displayName}</h1>
+    <div
+      className="w-full h-full"
+      style={{ display: 'grid', gridTemplateColumns: '200px 1fr' }}
+    >
+      <DashboardNav />
+      <div className="h-full"></div>
     </div>
   );
 };
