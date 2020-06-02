@@ -6,8 +6,8 @@ import { auth } from '../../firebase/init';
 const Navigation = ({ isAuthenticated }) => {
   return (
     <nav
-      className="w-full h-full sticky top-0 z-50 bg-purple-800"
-      // style={{ backgroundColor: '#141414' }}
+      className="w-full h-full sticky top-0 z-50 bg-blue-800"
+      // style={{ backgroundColor: '#1c1c1c' }}
     >
       <div
         className="flex flex-row justify-between items-center mx-12 h-full text-lg font-medium"

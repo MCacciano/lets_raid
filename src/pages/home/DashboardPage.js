@@ -2,6 +2,6 @@ import React from 'react';
 
 import Dashboard from '../../components/Dashboard';
 
-const HomePage = () => <Dashboard />;
+const DashboardPage = () => <Dashboard />;
 
-export default HomePage;
+export default DashboardPage;

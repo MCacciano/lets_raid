@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 // pages
-import HomePage from './pages/home';
+import DashboardPage from './pages/home';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/sign-up';
 
@@ -50,9 +50,20 @@ const App = () => {
   return (
     <MainLayout>
       <Switch>
-        <AuthRoute exact path="/" component={HomePage} />
+        <Route
+          exact
+          path="/"
+          render={() =>
+            auth.currentUser ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
+        />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/sign-up" component={SignUpPage} />
+        <AuthRoute exact path="/dashboard" component={DashboardPage} />
       </Switch>
     </MainLayout>
   );

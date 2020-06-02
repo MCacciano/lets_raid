@@ -5,12 +5,9 @@ import DashboardNav from '../DashboardNav/DashboardNav';
 
 const Dashboard = () => {
   return (
-    <div
-      className="w-full h-full"
-      style={{ display: 'grid', gridTemplateColumns: '200px 1fr' }}
-    >
+    <div className="flex flex-col w-full">
+      <div className="flex-grow bg-blue-500"></div>
       <DashboardNav />
-      <div className="h-full"></div>
     </div>
   );
 };
