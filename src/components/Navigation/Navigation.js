@@ -1,39 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import NavItem from '../NavItem/NavItem';
 
-import { auth } from '../../firebase/init';
-
-const Navigation = ({ isAuthenticated }) => {
+const Navigation = () => {
   return (
-    <nav
-      className="w-full h-full sticky top-0 z-50 bg-blue-800"
-      // style={{ backgroundColor: '#1c1c1c' }}
-    >
-      <div
-        className="flex flex-row justify-between items-center mx-12 h-full text-lg font-medium"
-        style={{ color: '#f4f4f4' }}
-      >
-        <Link to="/">
-          <h1 className="text-2xl">LetsRaid</h1>
-        </Link>
-        {auth.currentUser ? (
-          <ul className="flex flex-row h-full items-center">
-            <Link to="/" className="mx-4 cursor-pointer">
-              Dashboard
-            </Link>
-            <Link
-              to="/"
-              className="mx-4 cursor-pointer"
-              onClick={() => auth.signOut()}
-            >
-              Logout
-            </Link>
-          </ul>
-        ) : (
-          <Link to="/login">Login</Link>
-        )}
-      </div>
-    </nav>
+    <ul className="flex md:flex-col h-16 md:h-full md:order-1 md:w-1/6 lg:w-1/12 border-t border-blue-800 md:border-t-0 md:border-r">
+      <NavItem
+        icon="columns"
+        iconSize="lg"
+        text="Dashboard"
+        path="/dashboard"
+      />
+      <NavItem icon="dragon" iconSize="lg" text="Mounts" path="/mounts" />
+      <NavItem
+        icon="calendar-alt"
+        iconSize="lg"
+        text="Schedule"
+        path="/schedule"
+      />
+      <NavItem icon="hat-wizard" iconSize="lg" text="Gear" path="/gear" />
+      <NavItem
+        className="border-none"
+        icon="robot"
+        iconSize="lg"
+        text="Fights"
+        path="/fights"
+      />
+    </ul>
   );
 };
 

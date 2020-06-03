@@ -6,14 +6,19 @@ import {
   faDragon,
   faCalendar,
   faCalendarAlt,
+  faColumns,
   faHatWizard,
   faRobot,
 } from '@fortawesome/free-solid-svg-icons';
 
 // pages
-import DashboardPage from './pages/home';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/sign-up';
+import DashboardPage from './pages/dashboard';
+import FightsPage from './pages/fights';
+import GearPage from './pages/gear';
+import MountsPage from './pages/mounts';
+import SchedulePage from './pages/schedule';
 
 import MainLayout from './layouts/MainLayout';
 import AuthRoute from './components/AuthRoute';
@@ -23,7 +28,15 @@ import { auth, db, createUserDocument } from './firebase/init';
 
 import './App.css';
 
-library.add(fab, faCalendar, faCalendarAlt, faDragon, faHatWizard, faRobot);
+library.add(
+  fab,
+  faCalendar,
+  faCalendarAlt,
+  faColumns,
+  faDragon,
+  faHatWizard,
+  faRobot,
+);
 
 const App = () => {
   const { dispatch } = React.useContext(AuthContext);
@@ -61,9 +74,13 @@ const App = () => {
             )
           }
         />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/sign-up" component={SignUpPage} />
-        <AuthRoute exact path="/dashboard" component={DashboardPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/sign-up" component={SignUpPage} />
+        <AuthRoute path="/dashboard" component={DashboardPage} />
+        <AuthRoute path="/fights" component={FightsPage} />
+        <AuthRoute path="/gear" component={GearPage} />
+        <AuthRoute path="/mounts" component={MountsPage} />
+        <AuthRoute path="/schedule" component={SchedulePage} />
       </Switch>
     </MainLayout>
   );
